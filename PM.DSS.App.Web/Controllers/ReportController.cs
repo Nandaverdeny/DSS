@@ -67,7 +67,16 @@ namespace PM.DSS.App.Web.Controllers
                 }
                 academicinfoVM.listNonAcademic = listNonAcademic.listRow;
 
-                return View();
+                var compositeWeight = new List<RowViewModel>();
+                for (int i = 0; i < academicinfo.Count; i++)
+                {
+                    compositeWeight.Add(new RowViewModel {
+                        Name = academicinfo[i].CandidateStudent.Name,
+                        Total = ((academicinfoVM.listNationalExam[i].Average*obj.listRow[0].Average)+ (academicinfoVM.listReportCard[i].Average * obj.listRow[1].Average) + (academicinfoVM.listNonAcademic[i].Average * obj.listRow[2].Average))
+                    });
+                }
+
+                return View(compositeWeight.OrderByDescending(o=>o.Total).ToList());
             }
         }
 

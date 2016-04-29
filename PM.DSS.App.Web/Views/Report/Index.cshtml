@@ -1,7 +1,38 @@
-﻿@model ReportViewModel
+﻿@model List<RowViewModel>
 @{
     ViewBag.Title = "Report";
+    int Rank = 1;
 }
 
 <h2>Report</h2>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Result
+        </th>
+        <th>
+            Rank
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td>
+                @Rank
+            </td>
+        </tr>
+        Rank++;
+    }
+
+</table>
 

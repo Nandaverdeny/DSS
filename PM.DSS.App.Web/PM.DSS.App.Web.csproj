@@ -220,7 +220,6 @@
     <Compile Include="Services\AcademicInformationViewModel.cs" />
     <Compile Include="Services\ArrayExtension.cs" />
     <Compile Include="Services\CalculateViewModel.cs" />
-    <Compile Include="Services\IReportService.cs" />
     <Compile Include="Services\ReportService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
